@@ -24,10 +24,14 @@ select distinct type from netflix
 ----------------------------------------
 -- problems solving-------------
 --1. Count the Number of Movies vs TV Shows
-select type,count(*) from netflix
+
+select type,
+	count(*)
+	from netflix
 group by 1
 -----------------
 --2. Find the Most Common Rating for Movies and TV Shows
+
 select type,rating from
 	(select 
 		type,
@@ -41,10 +45,12 @@ where ranking=1
 --order by 1,3 desc
 -------------------------------------------------------
 --3. List All Movies Released in a Specific Year (e.g., 2020)
+
 select * from netflix
 where release_year=2020 and type='Movie'
 -------------------------------------------------------
 --4. Find the Top 5 Countries with the Most Content on Netflix
+
 select 
 	unnest(string_to_array(country,',')) as new_country,
 	count(show_id) as total_content
@@ -54,6 +60,7 @@ order by 2 desc
 limit 5
 --------------------------------------------------------
 --5. Identify the Longest Movie
+
 select * from netflix
 	where type='Movie'
 	and
@@ -66,10 +73,12 @@ WHERE type = 'Movie'
 ORDER BY SPLIT_PART(duration, ' ', 1)::INT DESC;
 ---------------------------------------------------------
 --6. Find Content Added in the Last 5 Years
+
 select count(*) from netflix
 	where to_date(date_added,'month dd,yyyy')>=current_date - interval '5 years'
 ---------------------------------------------------------
 --7. Find All Movies/TV Shows by Director 'Rajiv Chilaka'
+
 select * from (
 	select *, unnest(string_to_array(director, ',')) as direktor_name from netflix
 	) as t1
@@ -148,6 +157,7 @@ limit 10
 --15. Categorize Content Based on the Presence of 'Kill' and 'Violence' Keywords
 --Objective: Categorize content as 'Bad' if it contains 'kill' or 'violence' and 
 --'Good' otherwise. Count the number of items in each category.
+
 with new_table
 as(
 select 	
