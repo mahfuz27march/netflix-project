@@ -3,7 +3,7 @@
 
 ## Objective
 
----table creating
+```table creating
 drop table if exists netflix;
 create table netflix(
 	show_id varchar(10),
@@ -21,6 +21,7 @@ create table netflix(
 	);
 select count(*) from netflix	
 select distinct type from netflix
+```
 ----------------------------------------
 -- problems solving-------------
 --1. Count the Number of Movies vs TV Shows
