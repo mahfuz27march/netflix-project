@@ -47,9 +47,9 @@ where ranking=1
 --order by 1,3 desc
 -------------------------------------------------------
 ```
-```3. List All Movies Released in a Specific Year (e.g., 2020)
+#3. List All Movies Released in a Specific Year (e.g., 2020)
 
-select * from netflix
+```select * from netflix
 where release_year=2020 and type='Movie'
 -------------------------------------------------------
 ```
