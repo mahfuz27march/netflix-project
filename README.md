@@ -24,14 +24,15 @@ select distinct type from netflix
 ```
 ----------------------------------------
 -- problems solving-------------
---1. Count the Number of Movies vs TV Shows
+```1. Count the Number of Movies vs TV Shows
 
 select type,
 	count(*)
 	from netflix
 group by 1
+```
 -----------------
---2. Find the Most Common Rating for Movies and TV Shows
+```2. Find the Most Common Rating for Movies and TV Shows
 
 select type,rating from
 	(select 
@@ -45,11 +46,13 @@ select type,rating from
 where ranking=1	
 --order by 1,3 desc
 -------------------------------------------------------
---3. List All Movies Released in a Specific Year (e.g., 2020)
+```
+```3. List All Movies Released in a Specific Year (e.g., 2020)
 
 select * from netflix
 where release_year=2020 and type='Movie'
 -------------------------------------------------------
+```
 --4. Find the Top 5 Countries with the Most Content on Netflix
 
 select 
