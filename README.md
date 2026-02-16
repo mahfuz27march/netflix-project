@@ -172,7 +172,8 @@ limit 10
 --Objective: Categorize content as 'Bad' if it contains 'kill' or 'violence' and 
 --'Good' otherwise. Count the number of items in each category.
 
-```with new_table
+```
+with new_table
 as(
 select 	
 	case
